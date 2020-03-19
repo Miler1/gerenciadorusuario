@@ -133,7 +133,7 @@ Depois de ter esses, você deve instalar esses globais com `npm install --global
 
 ## Installing
 * `fork 'este repositório
-* clone seu garfo
+* clone o 'fork'
 * `npm install webpack-dev-server rimraf webpack -g` para instalar as dependências globais necessárias
 * `npm install` para instalar todas as dependências ou` yarn`
 * `npm run server` para iniciar o servidor de desenvolvimento em outra aba
