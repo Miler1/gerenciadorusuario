@@ -35,8 +35,8 @@ Este repositório de sementes serve como um iniciador Angular para quem quer com
 * Suporte ao Angular 4 através da alteração do package.json e de futuras versões do Angular
 
 ### Quick start
-**Make sure you have Node version >= 6.0 and NPM >= 3**
-> Clone/Download the repo then edit `app.component.ts` inside [`/src/app/app.component.ts`](/src/app/app.component.ts)
+Verifique se você possui a versão do nó> = 6.0 e NPM> = 3 **
+> Clone / Faça o download do repositório e edite `app.component.ts` dentro de [` /src/app/app.component.ts`Body(/src/app/app.component.ts)
 
 ```bash
 # clone nosso repo
