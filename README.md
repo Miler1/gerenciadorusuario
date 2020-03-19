@@ -222,7 +222,7 @@ O servidor foi implementado na linguagem java com Spring Boot que é baseada no 
 Para executar o servidor spring boot deverão ser executadas as seguintes etapas:
 
 dentro da pasta executar o comando:
-"mvn spring-boot:run"
+"mvn spring-boot:run" ou poderá ser aberto dentro de qualquer IDE de desenvolvimento de sua preferência.
 
 O comando acima instala as dependencias do maven quando é executado pela primeira vez e depois executa o servidor.
 
