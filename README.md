@@ -18,22 +18,21 @@
 [Http](https://angular.io/docs/ts/latest/guide/server-communication.html),
 [Services](https://gist.github.com/gdi2290/634101fec1671ee12b3e#_follow_@AngularClass_on_twitter),
 [Tests](https://angular.io/docs/ts/latest/guide/testing.html), [E2E](https://angular.github.io/protractor/#/faq#what-s-the-difference-between-karma-and-protractor-when-do-i-use-which-)), [Karma](https://karma-runner.github.io/), [Protractor](https://angular.github.io/protractor/), [Jasmine](https://github.com/jasmine/jasmine), [Istanbul](https://github.com/gotwarlost/istanbul), [TypeScript](http://www.typescriptlang.org/), [@types](https://www.npmjs.com/~types), [TsLint](http://palantir.github.io/tslint/), [Codelyzer](https://github.com/mgechev/codelyzer), [Hot Module Replacement](https://webpack.github.io/docs/hot-module-replacement-with-webpack.html), and [Webpack 2](http://webpack.github.io/) by [AngularClass](https://angularclass.com).
-
-This seed repo serves as an Angular starter for anyone looking to get up and running with Angular and TypeScript fast. Using a [Webpack 2](http://webpack.github.io/) for building our files and assisting with boilerplate. We're also using Protractor for our end-to-end story and Karma for our unit tests.
-* Best practices in file and application organization for Angular.
-* Ready to go build system using Webpack for working with TypeScript.
-* Angular examples that are ready to go when experimenting with Angular.
-* A great Angular seed repo for anyone who wants to start their project.
-* Ahead of Time (AoT) compile for rapid page loads of your production builds.
-* Tree shaking to automatically remove unused code from your production bundle.
-* [Webpack DLLs](https://robertknight.github.io/posts/webpack-dll-plugins/) dramatically speed your development builds.
-* Testing Angular code with Jasmine and Karma.
-* Coverage with Istanbul and Karma
-* End-to-end Angular code using Protractor.
-* Type manager with @types
-* Hot Module Replacement with Webpack and [@angularclass/hmr](https://github.com/angularclass/angular2-hmr) and [@angularclass/hmr-loader](https://github.com/angularclass/angular2-hmr-loader)
-* Material Design with [angular/material2](https://github.com/angular/material2)
-* Angular 4 support via changing package.json and any future Angular versions
+Este repositório de sementes serve como um iniciador Angular para quem quer começar a operar com Angular e TypeScript rapidamente. Usando um [Webpack 2] (http://webpack.github.io/) para criar nossos arquivos e ajudar com o clichê. Também estamos usando o Transferidor para nossa história de ponta a ponta e o Karma para nossos testes de unidade.
+* Melhores práticas na organização de arquivos e aplicativos para o Angular.
+* Pronto para construir o sistema usando o Webpack para trabalhar com o TypeScript.
+* Exemplos angulares prontos para serem usados ao experimentar o Angular.
+* Um excelente repositório de sementes Angular para quem deseja iniciar seu projeto.
+* Ahead of Time (AoT) compila para carregamentos rápidos de páginas de sua produção.
+* Tremido de árvore para remover automaticamente o código não utilizado do seu pacote de produção.
+* [DLLs do Webpack] (https://robertknight.github.io/posts/webpack-dll-plugins/) aceleram drasticamente o desenvolvimento de suas compilações.
+* Teste de código angular com Jasmine e Karma.
+* Cobertura com Istambul e Karma
+* Código angular de ponta a ponta usando Transferidor.
+* Gerenciador de tipos com @types
+* Substituição de módulo quente com Webpack e [@ angularclass / hmr] (https://github.com/angularclass/angular2-hmr) e [@ angularclass / hmr-loader] (https://github.com/angularclass/angular2- hmr-loader)
+* Design de material com [angular / material2] (https://github.com/angular/material2)
+* Suporte ao Angular 4 através da alteração do package.json e de futuras versões do Angular
 
 ### Quick start
 **Make sure you have Node version >= 6.0 and NPM >= 3**
@@ -42,10 +41,10 @@ This seed repo serves as an Angular starter for anyone looking to get up and run
 ```bash
 # clone our repo
 # --depth 1 removes all but one .git commit history
-git clone --depth 1 https://github.com/angularclass/angular2-webpack-starter.git
+git clone --depth 1 https://github.com/angularclass/angular2-webpack.git
 
 # change directory to our repo
-cd angular2-webpack-starter
+cd angular2-webpack
 
 # install the repo with npm
 npm install
