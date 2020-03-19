@@ -118,9 +118,9 @@ angular2-webpack-starter/
 
 # Getting Started
 ## Dependencies
-What you need to run this app:
-* `node` and `npm` (`brew install node`)
-* Ensure you're running the latest versions Node `v6.x.x`+ (or `v7.x.x`) and NPM `3.x.x`+
+O que você precisa para executar este aplicativo:
+* `node` e` npm` (`brew install node`)
+* Verifique se você está executando as últimas versões: Node `v6.x.x` + (ou` v7.x.x`) e NPM `3.x.x` +
 
 > Se você tem o `nvm` instalado, o que é altamente recomendado (` brew install nvm`), você pode fazer um `nvm install --lts && nvm use` em` $ `para rodar com o Node LTS mais recente. Você também pode fazer esse `zsh` para você [automaticamente] (https://github.com/creationix/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file)
 
@@ -132,11 +132,11 @@ Depois de ter esses, você deve instalar esses globais com `npm install --global
 * `typescript` (`npm install --global typescript`)
 
 ## Installing
-* `fork` this repo
-* `clone` your fork
-* `npm install webpack-dev-server rimraf webpack -g` to install required global dependencies
-* `npm install` to install all dependencies or `yarn`
-* `npm run server` to start the dev server in another tab
+* `fork 'este repositório
+* clone seu garfo
+* `npm install webpack-dev-server rimraf webpack -g` para instalar as dependências globais necessárias
+* `npm install` para instalar todas as dependências ou` yarn`
+* `npm run server` para iniciar o servidor de desenvolvimento em outra aba
 
 ## Running the app
 Depois de instalar todas as dependências, você poderá executar o aplicativo. Execute o `npm run server` para iniciar um servidor local usando o` webpack-dev-server` que assistirá, criará (na memória) e recarregará para você. A porta será exibida para você como
@@ -145,9 +145,9 @@ Depois de instalar todas as dependências, você poderá executar o aplicativo. 
 
 ### server
 ```bash
-# development
+# desenvolvimento
 npm run server
-# production
+# produção
 npm run build:prod
 npm run server:prod
 ```
@@ -156,9 +156,9 @@ npm run server:prod
 
 ### build files
 ```bash
-# development
+# desenvolvimento
 npm run build:dev
-# production (jit)
+# produção (jit)
 npm run build:prod
 # AoT
 npm run build:aot
@@ -186,15 +186,15 @@ npm run watch:test
 
 ### run end-to-end tests
 ```bash
-# update Webdriver (optional, done automatically by postinstall script)
-npm run webdriver:update
-# this will start a test server and launch Protractor
+# update Webdriver (opcional, feito automaticamente pelo script de pós-instalação)
+npm run webdriver: atualização
+# isto iniciará um servidor de teste e iniciará o transferidor
 npm run e2e
 ```
 
 ### continuous integration (run unit tests and e2e tests together)
 ```bash
-# this will test both your JIT and AoT builds
+# isso testará suas compilações JIT e AoT
 npm run ci
 ```
 
