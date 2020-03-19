@@ -4,7 +4,7 @@ import { CargoService } from '../../../services/cargo.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventEmitterService } from '../../../services/emitter.service';
 import { PagerService } from './../../shared/_services/pager.service'
-import { MaterializeAction } from 'angular2-materialize';
+import { MaterializeAction, toast } from 'angular2-materialize';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -64,7 +64,11 @@ export class TableCargoComponent implements OnInit {
     this._service.update(cargo.id, cargo).subscribe(res => {
       console.log(res);
       // this.usuarios = res;
-    });
+    },
+    (e) => {
+      let error = JSON.parse(e._body.split(','));
+      // console.log(m.message);
+      toast(error.message, 4000); console.log(e._body.split(','))});
   }
 
   salvar(cargo) {

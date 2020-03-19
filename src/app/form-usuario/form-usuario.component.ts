@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, ElementRef, Inject, SimpleChanges, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewChecked, AfterViewInit, OnDestroy } from '@angular/core';
-import { MaterializeAction } from 'angular2-materialize';
+import { MaterializeAction, toast } from 'angular2-materialize';
 import { PagerService } from '../../shared/_services';
 
 import * as $ from 'jquery';
@@ -108,7 +108,11 @@ export class FormUsuarioComponent implements OnInit, DoCheck, OnDestroy {
     this.usuario.dataCadastro = new Date();
     this._service.salvar(this.usuario).subscribe(res => {
       console.log(res);
-    });
+    },
+    (e) => {
+      let error = JSON.parse(e._body.split(','));
+      // console.log(m.message);
+      toast(error.message, 4000); console.log(e._body.split(','))});
 
     this.modalActions.emit({ action: 'modal', params: ['close'] });
     this._router.navigate(['/list-usuario']);
@@ -116,13 +120,13 @@ export class FormUsuarioComponent implements OnInit, DoCheck, OnDestroy {
   }
 
   dateFormat(date) {
-    console.log(date)
-    let a = date.toString().split("/").toString().split("T").toString().split(",");
-    console.log(a)
-    const year = parseInt(a[2]);
-    const month = parseInt(a[1]);
-    const day = parseInt(a[0]);
-    return this.date = new Date(year, month-1, day, 0, 0, 0, 0);
+    if (date != undefined) {
+      let a = date.toString().split("/").toString().split("T").toString().split(",");;
+      const year = parseInt(a[2]);
+      const month = parseInt(a[1]);
+      const day = parseInt(a[0]);
+      return this.date = new Date(year, month-1, day, 0, 0, 0, 0);
+    }
   }
 
   private getDefaultPickaOption(): any {

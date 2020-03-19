@@ -3,7 +3,7 @@ import { Perfil } from '../../../models/perfil';
 import { PagerService } from '../../shared/_services';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PerfilService } from '../../../services/perfil.service';
-import { MaterializeAction } from 'angular2-materialize';
+import { MaterializeAction, toast } from 'angular2-materialize';
 import { EventEmitterService } from '../../../services/emitter.service';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { FormPerfilComponent } from '../form-perfil.component';
@@ -73,7 +73,11 @@ export class TablePerfilComponent implements OnInit {
     this._service.update(perfil.id, perfil).subscribe(res => {
       console.log(res);
       // this.usuarios = res;
-    });
+    },
+    (e) => {
+      let error = JSON.parse(e._body.split(','));
+      // console.log(m.message);
+      toast(error.message, 4000); console.log(e._body.split(','))});
   }
 
   deletar(id) {
@@ -84,7 +88,6 @@ export class TablePerfilComponent implements OnInit {
   }
 
   salvar(perfil) {
-    console.log(perfil)
     let p = new Perfil(
       this.perfil.id,
       this.profileForm.get('nome').value

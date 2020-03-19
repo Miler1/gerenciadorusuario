@@ -73,20 +73,22 @@ public class UsuarioController {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
 					"Já existe um usuário com este cpf cadastrado");
 		}
-		System.out.println("id"+usuario.getCargo().getId());
-		System.out.println("id"+usuario.getPerfil().getId());
-		System.out.println("nome"+usuario.getCargo().getNome());
-		System.out.println("nome"+usuario.getPerfil().getNome());
+		
 		return usuarios.save(usuario);
 	}
 	
 	@PutMapping("/{id}")
 	public ResponseEntity<Usuario> updateUsuario(@PathVariable("id") Long id, @RequestBody Usuario usuario) {
 		Optional<Usuario> usuarioData = usuarios.findById(id);
-		System.out.println("id"+usuario.getCargo().getId());
-		System.out.println("id"+usuario.getPerfil().getId());
-		System.out.println("nome"+usuario.getCargo().getNome());
-		System.out.println("nome"+usuario.getPerfil().getNome());
+		
+//		List<Usuario>it = usuarios.findAll();
+//		it.forEach(e -> {
+//			if (e.getCpf().contains(usuario.getCpf())) {
+//				throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+//						"Já existe um usuário com este cpf cadastrado");
+//			}
+//		});
+		
 		if (usuarioData.isPresent()) {
 			Usuario _usuario = usuarioData.get();
 			_usuario.setNome(usuario.getNome());

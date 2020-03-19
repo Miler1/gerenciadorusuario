@@ -41,26 +41,10 @@ public class CargoController {
 	@Autowired
 	private CargoRepository cargos;
 	
-//	@GetMapping("/api")
 	@GetMapping
 	 public List<Cargo> listar() {
 		return cargos.findAll(Sort.by(Sort.Direction.ASC, "nome"));
-	 }
-	
-//	@GetMapping("/paginate")
-//	public List<Cargo> listar(@RequestParam Map<String, String> customQuery) {
-////		System.out.println(params);
-//		System.out.println("customQuery = brand " + customQuery.containsKey("brand"));
-//        System.out.println("customQuery = limit " + customQuery.get("limit"));
-//        System.out.println("customQuery = price " + customQuery.containsKey("price"));
-//        System.out.println("customQuery = other " + customQuery.get("offset"));
-//        System.out.println("customQuery = sort " + customQuery.containsKey("sort"));
-//        int offset = Integer.parseInt(customQuery.get("offset"));
-//        int limit = Integer.parseInt(customQuery.get("limit"));
-////        return customQuery.toString();
-//		return cargos.findCargos(offset, limit);
-//		// return cargos.findAll();
-//	}
+	}
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Cargo> buscar(@PathVariable Long id) {
@@ -80,19 +64,19 @@ public class CargoController {
 		
 		if (cargoExistente.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
-					"Já existe um cargo com a mesma descrição");
+					"Já existe um cargo com esta mesma descrição");
 		}
 		
 		return cargos.save(cargo);
 	}
-	/*Implementar exclusão e atualização*/
+	
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Long> deletar(@PathVariable("id") Long id) {
 		Optional<Cargo> cargo = cargos.findById(id);
 		
 		if (!cargo.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
-					"Este usuário não está cadastrado");
+					"Há um usuário associado a este cargo");
 		} 
 		
 		cargos.deleteById(id);
@@ -102,6 +86,11 @@ public class CargoController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Cargo> updateCargo(@PathVariable("id") Long id, @RequestBody Cargo cargo) {
 		Optional<Cargo> cargoData = cargos.findById(id);
+		
+//		if (cargoData.isPresent()) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+//					"Já existe um cargo com esta mesma descrição");
+//		}
 		
 		if (cargoData.isPresent()) {
 			Cargo _cargo = cargoData.get();

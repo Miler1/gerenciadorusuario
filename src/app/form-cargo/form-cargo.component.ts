@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter } from '@angular/core';
-import { MaterializeAction } from 'angular2-materialize';
+import { MaterializeAction, toast } from 'angular2-materialize';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Cargo } from '../../models/cargo';
 import { CargoService } from '../../services/cargo.service';
@@ -47,7 +47,11 @@ export class FormCargoComponent implements OnInit {
 
     this._service.salvar(u).subscribe(res => {
       console.log(res);
-    });
+    },
+    (e) => {
+      let error = JSON.parse(e._body.split(','));
+      // console.log(m.message);
+      toast(error.message, 4000); console.log(e._body.split(','))});
 
     this.modalActions.emit({ action: 'modal', params: ['close'] });
     this._router.navigate(['/list-perfil']);

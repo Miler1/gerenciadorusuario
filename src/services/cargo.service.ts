@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs';
-import { CargoList } from '../models/cargoList';
 import { Cargo } from '../models/cargo';
+import { toast } from ''
 
 @Injectable()
 export class CargoService {

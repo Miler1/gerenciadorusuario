@@ -56,7 +56,7 @@ public class PerfilController {
 		
 		if (perfilExistente.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
-					"Já existe um perfil com a mesma descrição");
+					"Já existe um perfil com esta mesma descrição");
 		}
 		
 		return perfis.save(perfil);
@@ -68,7 +68,7 @@ public class PerfilController {
 		
 		if (!perfil.isPresent()) {
 			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
-					"Este usuário não está cadastrado");
+					"Há um usuário associado a este perfil");
 		} 
 		
 		perfis.deleteById(id);
@@ -78,6 +78,11 @@ public class PerfilController {
 	@PutMapping("/{id}")
 	public ResponseEntity<Perfil> updatePerfil(@PathVariable("id") Long id, @RequestBody Perfil perfil) {
 		Optional<Perfil> perfilData = perfis.findById(id);
+		
+//		if (perfilData.isPresent()) {
+//			throw new ResponseStatusException(HttpStatus.BAD_REQUEST, 
+//					"Já existe um perfil com esta mesma descrição");
+//		}
 		
 		if (perfilData.isPresent()) {
 			Perfil _perfil = perfilData.get();

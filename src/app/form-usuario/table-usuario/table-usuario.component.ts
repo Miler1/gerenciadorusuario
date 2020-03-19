@@ -4,7 +4,7 @@ import { UsuarioService } from '../../../services/usuario.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PagerService } from '../../shared/_services';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MaterializeAction } from 'angular2-materialize';
+import { MaterializeAction, toast } from 'angular2-materialize';
 import * as $ from 'jquery';
 import { Cargo } from '../../../models/cargo';
 import { Perfil } from '../../../models/perfil';
@@ -155,7 +155,11 @@ export class TableUsuarioComponent implements OnInit, DoCheck, AfterContentInit,
     this._service.update(usuario.id, usuario).subscribe(res => {
       console.log(res);
       // this.usuarios = res;
-    });
+    },
+    (e) => {
+      let error = JSON.parse(e._body.split(','));
+      // console.log(m.message);
+      toast(error.message, 4000); console.log(e._body.split(','))});
 
     this.modalActions.emit({ action: 'modal', params: ['close'] });
     this._router.navigate(['/list-usuario']);
@@ -169,13 +173,13 @@ export class TableUsuarioComponent implements OnInit, DoCheck, AfterContentInit,
   }
 
   dateFormat(date) {
-    console.log(date)
-    let a = date.toString().split("/").toString().split("T").toString().split(",");
-    console.log(a)
-    const year = parseInt(a[2]);
-    const month = parseInt(a[1]);
-    const day = parseInt(a[0]);
-    return this.date = new Date(year, month-1, day, 0, 0, 0, 0);
+    if (date != undefined) {
+      let a = date.toString().split("/").toString().split("T").toString().split(",");
+      const year = parseInt(a[2]);
+      const month = parseInt(a[1]);
+      const day = parseInt(a[0]);
+      return this.date = new Date(year, month-1, day, 0, 0, 0, 0);
+    }
   }
 
   public close() {

@@ -27,7 +27,7 @@
                     <td>{{usuario.id}}</td>
                     <td>{{usuario.nome}}</td>
                     <td>{{usuario.cpf}}</td>
-                    <td>{{usuario.dataNascimento}}</td>
+                    <td>{{usuario.dataNascimento | date: 'dd/MM/yyyy'}}</td>
                     <td>{{usuario.sexo}}</td>
                     <td>{{usuario.cargo.nome}}</td>
                     <td>{{usuario.perfil.nome}}</td>
@@ -95,7 +95,7 @@
             </div>
             <div class="col s6">
               <label for="birthdate">Data de Nascimento</label>
-              <input id="birthdate" name="birthdate" [value]="usuario.dataNascimento" [(ngModel)]="usuario.dataNascimento"
+              <input id="birthdate" name="birthdate" [value]="usuario.dataNascimento | date: 'dd/MM/yyyy'" [(ngModel)]="usuario.dataNascimento"
                       materialize="pickadate"
                       [materializeActions]="birthDateActions"
                       [materializeParams]="[dateOptions]"
