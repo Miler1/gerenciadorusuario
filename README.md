@@ -213,7 +213,6 @@ npm run build:docker
 ## Location
 
 backend/
-
  ├──src/                           * pasta raiz
  |   ├──backend                    * pasta do servidor
  
