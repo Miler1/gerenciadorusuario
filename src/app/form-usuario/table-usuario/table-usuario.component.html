@@ -1,0 +1,154 @@
+<div class="center">
+    <app-loader [loading]="loading" [failed]="failed"></app-loader>
+  </div>
+<div class="row">
+  <div class="col s12 m10">
+      <div class="card ">
+        <div class="card-content">
+          <!-- <span class="card-title">Lista de Usuários</span> -->
+            <table>
+              <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>CPF</th>
+                    <th>Data de Nascimento</th>
+                    <th>Sexo</th>
+                    <th>Cargo</th>
+                    <th>Perfil</th>
+                    <th>Cadastrado em</th>
+                    <th>Editar</th>
+                    <th>Deletar</th>
+                </tr>
+              </thead>
+
+              <tbody *ngFor="let usuario of pagedItems">
+                  <tr>
+                    <td>{{usuario.id}}</td>
+                    <td>{{usuario.nome}}</td>
+                    <td>{{usuario.cpf}}</td>
+                    <td>{{usuario.dataNascimento}}</td>
+                    <td>{{usuario.sexo}}</td>
+                    <td>{{usuario.cargo.nome}}</td>
+                    <td>{{usuario.perfil.nome}}</td>
+                    <td>{{usuario.dataCadastro | date: 'dd/MM/yyyy'}}</td>
+                    <td><button class="modal-close btn warn waves-effect white-text " (click)="openModal(usuario)">Editar</button></td>
+                    <td><button class="modal-close btn red waves-effect white-text " (click)="deletar(usuario.id)">Deletar</button></td>
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card ">
+        <div class="card-content">
+          <!-- <app-pagination [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-pagination> -->
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.toArray() | async" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages.toArray() | async" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal" id="modal2" materialize="modal" [materializeParams]="[{dismissible: false}]" style="z-index: 1005; display: block; opacity: 1; bottom: 0px;"
+  [materializeActions]="modalActions">
+    <div class="modal-content">
+        <div class="row">
+          <form [formGroup]="userForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="nome" placeholder="Nome" type="text" [value]="usuario.nome" [(ngModel)]="usuario.nome" class="validate" formControlName="nome">
+                <label for="nome">Nome *</label>
+                  <div *ngIf="userForm.controls['nome'].invalid && (userForm.controls['nome'].dirty || userForm.controls['nome'].touched)">
+                    <div *ngIf="userForm.controls['nome'].errors.required">
+                    <small>Nome é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="input-field col s6">
+                <input [textMask]="{mask: mask}" placeholder="CPF" [value]="usuario.cpf" [(ngModel)]="usuario.cpf" id="cpf" type="text" class="validate" formControlName="cpf">
+                <label for="cpf">CPF *</label>
+                <div *ngIf="userForm.controls['cpf'].invalid && (userForm.controls['cpf'].dirty || userForm.controls['cpf'].touched)">
+                    <div *ngIf="userForm.controls['cpf'].errors.required">
+                    <small>CPF é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col s6">
+              <label for="birthdate">Data de Nascimento</label>
+              <input id="birthdate" name="birthdate" [value]="usuario.dataNascimento" [(ngModel)]="usuario.dataNascimento"
+                      materialize="pickadate"
+                      [materializeActions]="birthDateActions"
+                      [materializeParams]="[dateOptions]"
+                      type="text" formControlName="dataNascimento"/>
+            </div>
+            <label for="data_nascimento">Sexo</label>
+
+            <div>
+              <p>
+                <label>
+                  <input class="with-gap" value="M" [(ngModel)]="usuario.sexo" name="sexo" type="radio" checked formControlName="sexo" />
+                  <span>Masculino</span>
+                </label>
+              </p>
+              <p>
+                <label>
+                  <input class="with-gap" value="F" [(ngModel)]="usuario.sexo" name="sexo" type="radio" checked formControlName="sexo" />
+                  <span>Feminino</span>
+                </label>
+              </p>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <select materialize="material_select" [(ngModel)]="usuario.cargo.id" (change)="onSelectedCargo()" id="cargo" name="cargo" formControlName="cargo" [materializeSelectOptions]="usuario">
+                  <option value={{usuario.cargo.id}} selected>{{usuario.cargo.nome}}</option>
+                  <!-- <div *ngFor="let dept of perfis">
+                    <option>{{dept.nome}}</option>
+                  </div> -->
+                </select>
+              <label>Selecione o cargo *</label>
+              <div *ngIf="userForm.controls['cargo'].invalid && (userForm.controls['cargo'].dirty || userForm.controls['cargo'].touched)">
+                <div *ngIf="userForm.controls['cargo'].errors.required">
+                <small>O cargo é obrigatório.</small></div>
+              </div>
+              </div>
+              <div class="input-field col s6">
+                <select materialize="material_select" [(ngModel)]="usuario.perfil.id" (change)="onSelectedPerfil()" id="perfil" name="perfil" formControlName="perfil" [materializeSelectOptions]="usuario">
+                  <option value={{usuario.perfil.id}}>{{usuario.perfil.nome}}</option>
+                </select>
+              <label>Selecione o perfil</label>
+              </div>
+            </div>
+            <!-- <input type="date" formControlName="fromDate" materialize="pickadate" [materializeParams]="[dateOptions]" class="datepicker"> -->
+            <!-- <input type="date" formControlName="toDate" materialize="pickadate" [materializeParams]="[dateOptions]" class="datepicker" id="toDate"> -->
+          </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close btn red waves-effect white-text waves-green">Fechar</button>
+      <button class="waves-effect waves-red btn blue lighten-1"
+      [disabled]="userForm.controls['nome'].errors ||
+                  userForm.controls['cpf'].errors ||
+                  userForm.controls['cargo'].errors" (click)="salvar()">Salvar</button>
+    </div>
+  </div>

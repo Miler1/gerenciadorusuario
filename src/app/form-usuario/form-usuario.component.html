@@ -1,0 +1,78 @@
+<div class="modal" id="modal2" materialize="modal" [materializeParams]="[{dismissible: false}]" style="z-index: 1005; display: block; opacity: 1; bottom: 0px;"
+  [materializeActions]="modalActions">
+    <div class="modal-content">
+        <div class="row">
+          <form [formGroup]="userForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="nome" [(ngModel)]="usuario.nome" type="text" class="validate" formControlName="nome">
+                <label for="nome">Nome *</label>
+                  <div *ngIf="userForm.controls['nome'].invalid && (userForm.controls['nome'].dirty || userForm.controls['nome'].touched)">
+                    <div *ngIf="userForm.controls['nome'].errors.required">
+                    <small>Nome é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+              <div class="input-field col s6">
+                <input [textMask]="{mask: mask}" [(ngModel)]="usuario.cpf" id="cpf" type="text" class="validate" formControlName="cpf">
+                <label for="cpf">CPF *</label>
+                <div *ngIf="userForm.controls['cpf'].invalid && (userForm.controls['cpf'].dirty || userForm.controls['cpf'].touched)">
+                    <div *ngIf="userForm.controls['cpf'].errors.required">
+                    <small>CPF é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col s6">
+              <label for="birthdate">Data de Nascimento</label>
+              <input id="birthdate" name="birthdate" [value]="usuario.dataNascimento" [(ngModel)]="usuario.dataNascimento"
+                      materialize="pickadate"
+                      [materializeActions]="birthDateActions"
+                      [materializeParams]="[dateOptions]"
+                      type="text" formControlName="dataNascimento"/>
+            </div>
+            <label for="data_nascimento">Sexo</label>
+            <p>
+              <label>
+                <input class="with-gap" [(ngModel)]="usuario.sexo" name="sexo" value="M" type="radio" checked formControlName="sexo" />
+                <span>Masculino</span>
+              </label>
+            </p>
+            <p>
+              <label>
+                <input class="with-gap" [(ngModel)]="usuario.sexo" name="sexo" value="F" type="radio" checked formControlName="sexo" />
+                <span>Feminino</span>
+              </label>
+            </p>
+            <div class="row">
+              <div class="input-field col s6">
+                <select materialize="material_select" [(ngModel)]="usuario.cargo.id" id="cargo" (change)="onSelectedCargo()" name="cargo" formControlName="cargo">
+                  <option value="" ></option>
+                </select>
+              <label>Selecione o cargo *</label>
+              <div *ngIf="userForm.controls['cargo'].invalid && (userForm.controls['cargo'].dirty || userForm.controls['cargo'].touched)">
+                <div *ngIf="userForm.controls['cargo'].errors.required">
+                <small>O cargo é obrigatório.</small></div>
+              </div>
+              </div>
+              <div class="input-field col s6">
+                <select materialize="material_select" [(ngModel)]="usuario.perfil.id" id="perfil" (change)="onSelectedPerfil()" name="perfil" formControlName="perfil">
+                  <option value="" ></option>
+                </select>
+              <label>Selecione o perfil</label>
+              </div>
+            </div>
+            <!-- <input type="date" formControlName="fromDate" materialize="pickadate" [materializeParams]="[dateOptions]" class="datepicker"> -->
+            <!-- <input type="date" formControlName="toDate" materialize="pickadate" [materializeParams]="[dateOptions]" class="datepicker" id="toDate"> -->
+          </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close btn red waves-effect white-text waves-green">Fechar</button>
+      <button class="waves-effect waves-red btn blue lighten-1"
+      [disabled]="userForm.controls['nome'].errors ||
+                  userForm.controls['cpf'].errors ||
+                  userForm.controls['cargo'].errors" (click)="salvar()">Salvar</button>
+    </div>
+  </div>
+<!-- <app-table-usuario></app-table-usuario> -->

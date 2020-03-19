@@ -1,0 +1,24 @@
+<div class="modal" id="modal2" materialize="modal" [materializeParams]="[{dismissible: false}]" style="z-index: 1005; display: block; opacity: 1; bottom: 0px;"
+  [materializeActions]="modalActions">
+    <div class="modal-content">
+        <div class="row">
+          <form [formGroup]="profileForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="nome" type="text" class="validate" formControlName="nome">
+                <label for="nome">Nome *</label>
+                  <div *ngIf="profileForm.controls['nome'].invalid && (profileForm.controls['nome'].dirty || profileForm.controls['nome'].touched)">
+                    <div *ngIf="profileForm.controls['nome'].errors.required">
+                    <small>Nome é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close btn red waves-effect white-text waves-green">Fechar</button>
+      <button [disabled]="profileForm.controls['nome'].errors" class="waves-effect waves-red btn blue lighten-1" (click)="salvar()">Salvar</button>
+    </div>
+  </div>

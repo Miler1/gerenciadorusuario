@@ -1,0 +1,83 @@
+<div class="center">
+    <app-loader [loading]="loading" [failed]="failed"></app-loader>
+  </div>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card ">
+      <div class="card-content">
+        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Editar</th>
+              <th>Deletar</th>
+            </tr>
+          </thead>
+
+          <tbody *ngFor="let perfil of pagedItems">
+            <tr>
+              <td>{{perfil.nome}}</td>
+              <td><button class="modal-close btn warn waves-effect white-text " (click)="openModal(perfil)">Editar</button></td>
+              <td><button class="modal-close btn red waves-effect white-text " (click)="deletar(perfil.id)">Deletar</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+    <div class="col s12 m6">
+      <div class="card ">
+        <div class="card-content">
+          <!-- <app-pagination [offset]="offset" [limit]="limit" [size]="count" (pageChange)="onPageChange($event)"></app-pagination> -->
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.toArray() | async" class="pagination">
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(1)">First</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === 1}">
+                  <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+              </li>
+              <li *ngFor="let page of pager.pages.toArray() | async" [ngClass]="{active:pager.currentPage === page}">
+                  <a (click)="setPage(page)">{{page}}</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.currentPage + 1)">Next</a>
+              </li>
+              <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                  <a (click)="setPage(pager.totalPages)">Last</a>
+              </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- <div *ngIf="editing"> -->
+    <div class="modal" id="modal-basic-title" id="modal2" materialize="modal" [materializeParams]="[{dismissible: false}]" style="z-index: 1005; display: block; opacity: 1; bottom: 0px;"
+  [materializeActions]="modalActions">
+    <div class="modal-content">
+        <div class="row">
+          <form [formGroup]="profileForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="nome" placeholder="Nome" type="text" class="validate" formControlName="nome">
+                <label for="nome">Nome *</label>
+                  <div *ngIf="profileForm.controls['nome'].invalid && (profileForm.controls['nome'].dirty || profileForm.controls['nome'].touched)">
+                    <div *ngIf="profileForm.controls['nome'].errors.required">
+                    <small>Nome é obrigatório.</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-close btn red waves-effect white-text waves-green">Fechar</button>
+      <button [disabled]="profileForm.controls['nome'].errors" class="waves-effect waves-red btn blue lighten-1" (click)="salvar(perfil)">Salvar</button>
+    </div>
+</div>
+<!-- </div> -->
+
+

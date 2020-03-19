@@ -1,0 +1,82 @@
+#sidenav-overlay{
+  opacity: 0 !important;
+}
+
+nav a {
+  background-color: transparent;
+  text-align: left;
+}
+
+@media only screen and (min-width: 600px) {
+  nav, nav .nav-wrapper i, nav a.button-collapse, nav a.button-collapse i {
+      height: 64px;
+      line-height: 50px;
+  }
+}
+
+/* // FIX SIDENAV SPACING */
+.side-nav li > a {
+  padding: 0 16px;
+  display: inline-block;
+}
+/* //FIX SIDEBAR DIVIDERS */
+.side-nav .divider {
+  margin:0;
+  height:8px;
+  border-bottom:1px solid #e0e0e0;
+  background-color: transparent;
+}
+
+/* // SIDENAV HEADER */
+.sidenav-header {
+  /* background: url("../images/user-bg.jpg") no-repeat center center; */
+  background-size: cover;
+  margin-bottom: 0px;
+  padding: 15px 0 0 15px;
+}
+
+.sidenav-header .row {
+  margin-bottom: 0;
+}
+
+.sidenav-footer .row {
+  margin-bottom: 0;
+}
+
+.sidenav-footer .row .a {
+  opacity: 0.5;
+  padding: 0;
+  text-align: center;
+}
+
+.sidenav-footer .row .a:hover {
+  background-color: inherit;
+  opacity: 1;
+}
+
+.sidenav-footer {
+  margin-bottom: 0px;
+  padding: 0;
+}
+
+nav .brand-logo {
+  line-height: 50px;
+}
+
+.main-menu {
+  padding: 0 0;
+}
+
+.side-nav .collapsible-header, .side-nav.fixed .collapsible-header {
+  width: 93.5%;
+}
+
+.side-nav .collapsible-body li a, .side-nav.fixed .collapsible-body li a {
+  width: 93.5%;
+}
+
+.btn, .btn-large, .btn-floating, .btn-large, .btn-flat {
+  font-size: 1rem;
+  outline: 0;
+}
+

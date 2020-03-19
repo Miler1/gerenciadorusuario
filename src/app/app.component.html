@@ -1,0 +1,169 @@
+<!-- <nav>
+    <a [routerLink]=" ['./'] "
+      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Index
+    </a>
+    <a [routerLink]=" ['./home'] "
+      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Home
+    </a>
+    <a [routerLink]=" ['./detail'] "
+      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Detail
+    </a>
+    <a [routerLink]=" ['./barrel'] "
+      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      Barrel
+    </a>
+    <a [routerLink]=" ['./about'] "
+      routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
+      About
+    </a>
+  </nav> -->
+  <!-- <app-form-cargo></app-form-cargo> -->
+  <nav>
+      <div class="nav-wrapper">
+        <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large"><i class="material-icons">menu</i></a>
+        <a href="#" class="brand-logo" target="_blank">Materialize Framework</a>
+        <ul class="right hide">
+          <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Sass</a></li>
+          <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Components</a></li>
+          <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Javascript</a></li>
+          <li><a href="https://codepen.io/collection/nbBqgY/" target="_blank">Mobile</a></li>
+        </ul>
+
+        <ul class="side-nav" id="mobile-demo">
+          <li class="sidenav-header blue">
+            <div class="row">
+              <div class="col s4">
+                  <!-- <img src="https://gravatar.com/avatar/961997eb7fd5c22b3e12fb3c8ca14e11?s=80&d=https://codepen.io/assets/avatars/user-avatar-80x80-bdcd44a3bfb9a5fd01eb8b86f9e033fa1a9897c3a15b33adfc2649a002dab1b6.png" width="48px" height="48px" alt="" class="circle responsive-img valign profile-image"> -->
+              </div>
+              <div class="col s8">
+                  <div class="btn-flat dropdown-button waves-light white-text main-menu" data-activates="profile-dropdown">Menu</div>
+                  <!-- <a href="#" class="btn-flat dropdown-button waves-effect waves-light white-text" data-activates="profile-dropdown">Menu<i class="mdi-navigation-arrow-drop-down right"></i></a> -->
+                  <!-- <ul id="profile-dropdown" class="dropdown-content">
+                      <li><a href="#"><i class="material-icons">person</i></a></li>
+                      <li><a href="#"><i class="material-icons">settings</i></a></li>
+                      <li><a href="#"><i class="material-icons">help</i></a></li>
+                      <li class="divider"></li>
+                      <li><a href="#"><i class="material-icons">lock</i></a></li>
+                      <li><a href="#"><i class="material-icons">exit_to_app</i></a></li>
+                  </ul> -->
+              </div>
+            </div>
+          </li>
+
+          <li class="blue">
+            <ul class="collapsible collapsible-accordion">
+                <li>
+                  <a class="collapsible-header white-text  waves-blue "><i class="material-icons white-text ">folder</i>Cadastros <i class="material-icons right white-text" style="margin-right:0;">arrow_drop_down</i></a>
+                  <div class="collapsible-body z-depth-3">
+                    <ul>
+                      <li><a [routerLink]=" ['./cargo'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue"><i class="material-icons">work</i>Cargo</a></li>
+                      <li><a [routerLink]=" ['./usuario'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue"><i class="material-icons">person_add</i>Usuário</a></li>
+                      <li><a [routerLink]=" ['./perfil'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue"><i class="material-icons">group_add</i>Perfil</a></li>
+
+                      <!-- <li><a (click)="openCargo()" class=" waves-blue"><i class="material-icons">work</i>Cargo</a></li>
+                      <li><a (click)="openUsuario()" class=" waves-blue"><i class="material-icons">person_add</i>Usuário</a></li>
+                      <li><a (click)="openPerfil()" class=" waves-blue"><i class="material-icons">group_add</i>Perfil</a></li> -->
+
+                      <!--<li><a [routerLink]=" ['./list-cargo'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class="waves-effect waves-blue" href="#">Nederlands</a></li>
+                      <li><a [routerLink]=" ['./list-usuario'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class="waves-effect waves-blue" href="#">Français</a></li>
+                      <li><a [routerLink]=" ['./list-perfil'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class="waves-effect waves-blue" href="#">Deutsch</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">한국어</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">Português</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">Русский</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">Español</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">Svenska</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">ภาษาไทย</a></li>
+                      <li><a class="waves-effect waves-blue" href="#">Türkçe</a></li> -->
+                      <li><div class="divider"></div></li>
+                    </ul>
+                  </div>
+                </li>
+            </ul>
+          </li>
+
+          <li class="blue">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header white-text waves-blue"><i class="material-icons white-text">list</i>Listagem <i class="material-icons right white-text" style="margin-right:0;">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a [routerLink]=" ['./list-cargo'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue" href="#"><i class="material-icons">work</i>Cargos</a></li>
+                    <li><a [routerLink]=" ['./list-usuario'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue" href="#"><i class="material-icons">person</i>Usuários</a></li>
+                    <li><a [routerLink]=" ['./list-perfil'] " routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}" class=" waves-blue" href="#"><i class="material-icons">people</i>Perfis</a></li>
+                    <li><div class="divider"></div></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- <li class="white">
+            <ul class="collapsible collapsible-accordion">
+              <li>
+                <a class="collapsible-header waves-effect waves-blue"><i class="material-icons">folder_open</i>A submenu <i class="material-icons right" style="margin-right:0;">arrow_drop_down</i></a>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">fullscreen</i>Full Screen</a></li>
+                    <li><a class="waves-effect waves-blue" href="#"><i class="material-icons">swap_horiz</i>Horizontal Menu</a></li>
+                    <li><div class="divider"></div></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li> -->
+          <!-- <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">mail</i>Menu item</a></li>
+          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">call</i> Menu item</a></li>
+          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">android</i> Menu item</a></li>
+          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">dialpad</i> Menu item</a></li>
+          <li class="white"><div class="divider"></div></li>
+          <li class="white"><a href="#" class="waves-effect waves-blue"><i class="material-icons">language</i> Menu item<span class="new badge right yellow darken-3"></span></a></li>
+
+          <li class="sidenav-footer grey darken-2">
+            <div class="row">
+              <div class="social-icons">
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-linkedin-square"></i></a>
+                </div>
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-facebook-official"></i></a>
+                </div>
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-twitter"></i></a>
+                </div>
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-google-plus"></i></a>
+                </div>
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-pinterest"></i></a>
+                </div>
+                <div class="col s2">
+                  <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link"><i class="fa fa-lg fa-youtube"></i></a>
+                </div>
+              </div>
+            </div>
+          </li> -->
+        </ul>
+
+      </div>
+    </nav>
+
+  <!-- <div class="container">
+    <p>Sidenav inspiration. I ended up using this on <a href="https://jay.holtslander.ca/?utm_source=codepen&utm_medium=pen-link" target="_blank">my own website</a>.</p>
+  </div> -->
+
+  <!-- Gitter Chat Link -->
+  <!-- <div class="fixed-action-btn"><a class="btn-floating btn-large red" href="https://gitter.im/Dogfalo/materialize" target="_blank"><i class="large material-icons">chat</i></a></div> -->
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+
+  <!-- <footer>
+    <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
+    <div>
+      <a [href]="url">
+        <img [src]="angularclassLogo" width="25%">
+      </a>
+    </div>
+  </footer> -->
