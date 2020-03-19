@@ -63,15 +63,7 @@ vai para [http://0.0.0.0:3000](http://0.0.0.0:3000) ou [http://localhost:3000](h
     * [Dependencies](#dependencies)
     * [Installing](#installing)
     * [Running the app](#running-the-app)
-* [Configuration](#configuration)
-* [AoT Don'ts](#aot-donts)
-* [External Stylesheets](#external-stylesheets)
-* [Contributing](#contributing)
-* [TypeScript](#typescript)
-* [@Types](#types)
-* [Frequently asked questions](#frequently-asked-questions)
-* [Support, Questions, or Feedback](#support-questions-or-feedback)
-* [License](#license)
+* [Backend](#backend)
 
 
 ## File Structure
