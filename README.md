@@ -78,7 +78,7 @@ vai para [http://0.0.0.0:3000](http://0.0.0.0:3000) ou [http://localhost:3000](h
 Usamos a abordagem de componentes em nosso motor de partida. Esse é o novo padrão para o desenvolvimento de aplicativos Angular e uma ótima maneira de garantir código sustentável, encapsulando nossa lógica de comportamento. Um componente é basicamente um aplicativo independente, geralmente em um único arquivo ou pasta com cada preocupação como um arquivo: estilo, modelo, especificações, e2e e classe de componente. Veja como fica:
 
 ```
-angular2-webpack-starter/
+angular2-webpack/
  ├──config/                        * our configuration
  |   ├──helpers.js                 * helper functions for our configuration files
  |   ├──spec-bundle.js             * ignore this magic that sets up our Angular testing environment
@@ -207,3 +207,34 @@ npm run e2e:live
 ```bash
 npm run build:docker
 ```
+
+# Backend
+
+## Location
+
+backend/
+
+ ├──src/                           * pasta raiz
+ |   ├──backend                    * pasta do servidor
+ 
+
+O servidor foi implementado na linguagem java com Spring Boot que é baseada no Spring e para o armazenamento de dados foi utilizado o servidor MySQL na versão 8. O arquivo "db1-backup-2019-05-13.sql" contém o script para a criação do banco de dados.
+
+Para executar o servidor spring boot deverão ser executadas as seguintes etapas:
+
+# baixar o arquivo do servidor no repositorio do git com o seguinte comando:
+git clone (https://github.com/Miler1/server-SpringBootRestApiMySQL.git)
+
+após baixar o arquivo entrar dentro da pasta do repositório com o comando:
+cd "SpringBootRestApiMySQL"
+
+dentro da pasta executar o comando:
+"mvn spring-boot:run"
+
+O comando acima instala as dependencias do maven quando é executado pela primeira vez e depois executa o servidor.
+
+caso o comando exibir a seguinte mensagem: 
+"The JAVA_HOME environment variable is not defined correctly This environment variable is needed to run this program NB: JAVA_HOME should point to a JDK not a JRE" 
+
+basta executar o comando:
+"export PATH=$JAVA_HOME/jre/bin:$PATH" na qual permitirá a execução do comando do maven normalmente.
