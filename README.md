@@ -39,26 +39,23 @@ Este repositório de sementes serve como um iniciador Angular para quem quer com
 > Clone/Download the repo then edit `app.component.ts` inside [`/src/app/app.component.ts`](/src/app/app.component.ts)
 
 ```bash
-# clone our repo
-# --depth 1 removes all but one .git commit history
+# clone nosso repo
+# --depth 1 remove todos, exceto um histórico de confirmação .git
 git clone --depth 1 https://github.com/angularclass/angular2-webpack.git
 
-# change directory to our repo
+# mudar o diretorio do nosso repo
 cd angular2-webpack
 
-# install the repo with npm
+# instalar o repo com npm install
 npm install
 
-# start the server
+# iniciar o servidor
 npm start
 
-# use Hot Module Replacement
+# usar substituição de Hot Module
 npm run server:dev:hmr
-
-# if you're in China use cnpm
-# https://github.com/cnpm/cnpm
 ```
-go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http://localhost:3000) in your browser
+vai para [http://0.0.0.0:3000](http://0.0.0.0:3000) ou [http://localhost:3000](http://localhost:3000) no seu navegador
 
 # Table of Contents
 * [File Structure](#file-structure)
@@ -78,7 +75,8 @@ go to [http://0.0.0.0:3000](http://0.0.0.0:3000) or [http://localhost:3000](http
 
 
 ## File Structure
-We use the component approach in our starter. This is the new standard for developing Angular apps and a great way to ensure maintainable code by encapsulation of our behavior logic. A component is basically a self contained app usually in a single file or a folder with each concern as a file: style, template, specs, e2e, and component class. Here's how it looks:
+Usamos a abordagem de componentes em nosso motor de partida. Esse é o novo padrão para o desenvolvimento de aplicativos Angular e uma ótima maneira de garantir código sustentável, encapsulando nossa lógica de comportamento. Um componente é basicamente um aplicativo independente, geralmente em um único arquivo ou pasta com cada preocupação como um arquivo: estilo, modelo, especificações, e2e e classe de componente. Veja como fica:
+
 ```
 angular2-webpack-starter/
  ├──config/                        * our configuration
@@ -124,9 +122,9 @@ What you need to run this app:
 * `node` and `npm` (`brew install node`)
 * Ensure you're running the latest versions Node `v6.x.x`+ (or `v7.x.x`) and NPM `3.x.x`+
 
-> If you have `nvm` installed, which is highly recommended (`brew install nvm`) you can do a `nvm install --lts && nvm use` in `$` to run with the latest Node LTS. You can also have this `zsh` done for you [automatically](https://github.com/creationix/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file) 
+> Se você tem o `nvm` instalado, o que é altamente recomendado (` brew install nvm`), você pode fazer um `nvm install --lts && nvm use` em` $ `para rodar com o Node LTS mais recente. Você também pode fazer esse `zsh` para você [automaticamente] (https://github.com/creationix/nvm#calling-nvm-use-automatically-in-a-directory-with-a-nvmrc-file)
 
-Once you have those, you should install these globals with `npm install --global`:
+Depois de ter esses, você deve instalar esses globais com `npm install --global`:
 * `webpack` (`npm install --global webpack`)
 * `webpack-dev-server` (`npm install --global webpack-dev-server`)
 * `karma` (`npm install --global karma-cli`)
@@ -141,7 +139,9 @@ Once you have those, you should install these globals with `npm install --global
 * `npm run server` to start the dev server in another tab
 
 ## Running the app
-After you have installed all dependencies you can now run the app. Run `npm run server` to start a local server using `webpack-dev-server` which will watch, build (in-memory), and reload for you. The port will be displayed to you as `http://0.0.0.0:3000` (or if you prefer IPv6, if you're using `express` server, then it's `http://[::1]:3000/`).
+Depois de instalar todas as dependências, você poderá executar o aplicativo. Execute o `npm run server` para iniciar um servidor local usando o` webpack-dev-server` que assistirá, criará (na memória) e recarregará para você. A porta será exibida para você como
+ `http://0.0.0.0:3000` (ou se você preferir IPv6, se estiver usando o servidor `express`, é
+ `http://[::1]:3000/`).
 
 ### server
 ```bash
