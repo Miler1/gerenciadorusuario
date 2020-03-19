@@ -216,6 +216,8 @@ Para executar o servidor spring boot deverão ser executadas as seguintes etapas
 dentro da pasta executar o comando:
 "mvn spring-boot:run" ou poderá ser aberto dentro de qualquer IDE de desenvolvimento de sua preferência.
 
+Como pré-requisito deve ser instalado o maven no seu computador o mesmo poderá ser baixado nesse link: https://maven.apache.org/download.cgi
+
 O comando acima instala as dependencias do maven quando é executado pela primeira vez e depois executa o servidor.
 
 caso o comando exibir a seguinte mensagem: 
