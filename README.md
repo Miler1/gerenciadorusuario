@@ -215,10 +215,9 @@ Para executar o servidor spring boot deverão ser executadas as seguintes etapas
 
 dentro da pasta executar o comando:
 "mvn spring-boot:run" ou poderá ser aberto dentro de qualquer IDE de desenvolvimento de sua preferência.
+O comando acima instala as dependencias do maven quando é executado pela primeira vez e depois executa o servidor.
 
 Como pré-requisito deve ser instalado o maven no seu computador o mesmo poderá ser baixado nesse link: https://maven.apache.org/download.cgi
-
-O comando acima instala as dependencias do maven quando é executado pela primeira vez e depois executa o servidor.
 
 caso o comando exibir a seguinte mensagem: 
 "The JAVA_HOME environment variable is not defined correctly This environment variable is needed to run this program NB: JAVA_HOME should point to a JDK not a JRE" 
